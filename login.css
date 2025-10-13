@@ -1,0 +1,191 @@
+/* Reset dasar untuk konsistensi */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+}
+
+body {
+  background-color: #fff;
+  /* Latar belakang putih */
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  /* Posisikan konten di bagian atas */
+  min-height: 100vh;
+  padding-top: 50px;
+  /* Jarak dari atas layar */
+}
+
+.login-container {
+  width: 100%;
+  max-width: 360px;
+  /* Lebar maksimal yang umum untuk tampilan mobile */
+  padding: 0 30px;
+  /* Padding samping */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Teks Bahasa */
+.language-text {
+  font-size: 13px;
+  color: #90949c;
+  margin-bottom: 25px;
+}
+
+/* Logo Facebook */
+.facebook-logo-placeholder {
+  margin-bottom: 30px;
+}
+
+.facebook-logo-placeholder svg {
+  /* Mengatur ukuran ikon, sesuai dengan yang ada di HTML */
+  width: 60px;
+  height: 60px;
+}
+
+/* Formulir Login */
+.login-form {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  /* Jarak antar elemen dalam form */
+}
+
+/* Input Fields */
+.login-form input {
+  width: 100%;
+  padding: 15px 10px;
+  border: 1px solid #dddfe2;
+  /* Border abu-abu muda */
+  border-radius: 5px;
+  font-size: 16px;
+  color: #1c1e21;
+  outline: none;
+  /* Hilangkan outline default */
+}
+
+.login-form input:focus {
+  border-color: #1877F2;
+  /* Border biru saat fokus */
+}
+
+/* Wrapper untuk input password dan ikon */
+.password-input-wrapper {
+  position: relative;
+  width: 100%;
+}
+
+.password-input-wrapper input {
+  padding-right: 40px;
+  /* Ruang untuk ikon mata */
+}
+
+.password-toggle {
+  position: absolute;
+  right: 15px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #606770;
+  /* Warna abu-abu untuk ikon */
+  cursor: pointer;
+}
+
+/* Ikon mata (yang dicoret) */
+.password-toggle svg {
+  width: 18px;
+  height: 18px;
+}
+
+/* Tombol Login */
+.login-button {
+  background-color: #1877F2;
+  /* Biru Facebook */
+  color: white;
+  padding: 15px;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.login-button:hover {
+  background-color: #166fe5;
+  /* Biru sedikit lebih gelap saat hover */
+}
+
+/* Tautan Lupa Kata Sandi */
+.forgot-password {
+  text-align: center;
+  color: #1877F2;
+  text-decoration: none;
+  font-size: 14px;
+  margin-top: 5px;
+  margin-bottom: 40px;
+}
+
+.forgot-password:hover {
+  text-decoration: underline;
+}
+
+/* Separator/Pembatas (titik-titik) */
+.separator-meta {
+  width: 100%;
+  text-align: center;
+  border-bottom: 1px solid #dadde1;
+  /* Garis horizontal */
+  line-height: 0.1em;
+  margin: 30px 0 40px;
+  /* Jarak atas/bawah */
+}
+
+.meta-text {
+  background: #fff;
+  padding: 0 10px;
+  color: #b7b7b7;
+  /* Warna abu-abu untuk titik-titik */
+  font-size: 12px;
+}
+
+.dot {
+  margin: 0 2px;
+}
+
+/* Tombol Buat Akun Baru */
+.create-account-button {
+  background-color: #fff;
+  color: #1877F2;
+  padding: 15px;
+  border: 1px solid #1877F2;
+  /* Border biru */
+  border-radius: 5px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  width: 100%;
+  margin-bottom: 20px;
+  transition: background-color 0.2s;
+}
+
+.create-account-button:hover {
+  background-color: #f7f7f7;
+}
+
+/* Tanda Meta */
+.meta-tag {
+  font-size: 14px;
+  color: #4b4f56;
+  font-weight: bold;
+  text-align: center;
+}
+
+.meta-tag strong {
+  font-weight: normal;
+  /* Membuat teks "Meta" tidak terlalu tebal jika sudah dibold */
+}

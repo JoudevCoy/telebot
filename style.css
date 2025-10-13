@@ -1,0 +1,53 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  padding: 0;
+  margin: 0;
+  width: 100%;
+  min-height: 100vh;
+  background: black;
+}
+
+.hide {
+  display: none;
+}
+
+.main {
+  width: 100%;
+  padding-inline: 2rem;
+  height: 100vh;
+  display: grid;
+  gap: 1rem;
+  place-content: center;
+}
+
+.main h1 {
+  color: white;
+  font-size: 3rem;
+}
+.main .btn-verif {
+  appearance: none;
+  padding: .5rem;
+  font-size: 2rem;
+  border: none;
+  background: blue;
+  color: white;
+  border-radius: 1rem;
+}
+.main .btn-verif.not {
+  background: white;
+  color: black;
+}
+.main .bg-img {
+  position: fixed;
+  top: 0; left: 0;
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  z-index: -1;
+  opacity: 0;
+}
